@@ -39,11 +39,12 @@ It gives the skill a real Chrome browser to read job postings. Without it, the s
 | | Without (WebFetch) | With Chrome MCP |
 | --- | --- | --- |
 | Job text | Often a paraphrased summary | The full posting, word for word |
-| Pages behind a login | Can't read them | You log in yourself in the Chrome window, then it reads the page |
 | JavaScript-built pages | Often empty or partial | Fully rendered |
 | Search (`DevOps Engineer in Israel count 3`) | Not possible | Searches and opens the results |
 
-Exact wording matters, because the CV is matched to the job's keywords and the validator checks fit against the full requirements. A single public job URL works without the Chrome MCP, and so does pasted job text. Searching job boards and pages behind a login need it.
+Exact wording matters, because the CV is matched to the job's keywords and the validator checks fit against the full requirements. A single public job URL works without the Chrome MCP, and so does pasted job text. Searching job boards needs it.
+
+**The browser runs hidden (headless).** No Chrome window opens during a run. Public job pages, including LinkedIn job links, work this way. If a page needs a login or a CAPTCHA, the run stops and tells you. Use *Paste text* instead, or, to log in yourself, remove `"--headless"` from [.mcp.json](.mcp.json) so the browser window becomes visible.
 
 ## Use the web UI
 
@@ -159,7 +160,7 @@ Not automated: the PRD's success metrics (pass rate, acceptance rate) are evalua
     └── md2docx.js           markdown (#, ##, ###, "- ", **bold**) to Word
 web/                         THE WEB UI: calls the skill through the claude CLI
 ├── server.js                Node HTTP server, no dependencies
-├── index.html               the page (loads marked and DOMPurify from a CDN)
+├── index.html               the page and its briefcase icon (loads marked and DOMPurify from a CDN)
 └── server.test.js           self-check of step tracking (npm test)
 setup.ps1, setup.sh          check prerequisites, install dependencies, run the self-check
 start.ps1, start.sh          start the web UI
