@@ -70,12 +70,20 @@ Then open <http://localhost:3000> and follow these steps:
    - Profile text (tone, must-mention items, companies to avoid), saved to `cv/profile.md`.
    - **Max fix rounds** (1–3, default 2): how many times the validator may send the CV and letter back for fixes.
    - **Budget limit** (USD, default 3): a hard spending cap for the run.
+
+   ![Input panel: CV upload, job posting link or pasted text, preferences, and the Tailor my application button](docs/screenshots/inputs.png)
+
 4. Click **Tailor my application**. The 7 pipeline steps light up as the skill runs, with a timer. The activity log shows each action.
+
+   ![Progress tracker with all 7 steps completed: Import CV, Read job, Tailor CV, Cover letter, Validate, Word export, Recommend](docs/screenshots/progress.png)
+
 5. Review the results:
    - Fit score, validation result, time, and cost.
    - Tabs: Overview (the ranked recommendation), Tailored CV, Cover letter, Validation, Job posting.
    - **CV (.docx)** and **Cover letter (.docx)** download buttons.
 6. **Refine.** Type a change in the box above the tabs (for example, "make the cover letter shorter and more technical") and click **Refine**. The previous version is archived to `history/`. The change is validated again, and the Word files are rebuilt.
+
+   ![Results: CV and cover letter downloads, fit score 7/10, validation passed, duration and cost, and the Refine box](docs/screenshots/results.png)
 
 The last run is kept in `output/.last_run.json` and shown again after a refresh or restart.
 
@@ -166,6 +174,7 @@ setup.ps1, setup.sh          check prerequisites, install dependencies, run the 
 start.ps1, start.sh          start the web UI
 .mcp.json                    Chrome DevTools MCP server for this project
 job seeker skill/            design docs: prd.md, mcp_devtools_tutorial.md
+docs/screenshots/            UI screenshots used in this README
 cv/ jobs/ input/ output/     your data (git-ignored)
 ```
 
