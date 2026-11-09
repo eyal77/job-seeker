@@ -1,0 +1,6 @@
+# Personal data: never commit
+cv/
+jobs/
+output/
+input/
+node_modules/

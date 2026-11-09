@@ -1,0 +1,8 @@
+{
+  "name": "job-seeker-web",
+  "private": true,
+  "scripts": {
+    "start": "node web/server.js",
+    "test": "node web/server.test.js"
+  }
+}

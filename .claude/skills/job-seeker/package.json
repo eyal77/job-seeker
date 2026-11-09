@@ -1,0 +1,8 @@
+{
+  "name": "job-seeker-skill",
+  "private": true,
+  "description": "Dependencies for the job-seeker skill scripts",
+  "dependencies": {
+    "docx": "^9.15.3"
+  }
+}
