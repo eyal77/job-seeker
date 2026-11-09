@@ -36,7 +36,7 @@ If the request starts with `refine` (for example, `refine 01_papaya_backend-engi
 ## Step 0: Inputs
 
 1. If the request includes `cv: <path>`, import that file first, replacing the previous CV:
-   - `.docx` file: run `python -I "<skill>/scripts/docx2md.py" "<path>" > cv/original_cv.md` (create `cv/` first if needed)
+   - `.docx` file: run `python -I "<skill>/scripts/docx2md.py" "<path>" > cv/original_cv.md` (create `cv/` first if needed; use `python3` if `python` is not found)
    - `.md` or `.txt` file: copy it to `cv/original_cv.md`
 
    Then read `cv/original_cv.md`. If there is no CV, stop and ask the user for one.

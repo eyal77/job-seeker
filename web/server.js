@@ -14,7 +14,7 @@ const rel = (p) => path.relative(ROOT, path.resolve(ROOT, p)).split(path.sep).jo
 
 // Tools the headless run may use. Anything else is denied (print mode cannot prompt).
 const ALLOWED_TOOLS = ['Read', 'Write', 'Edit', 'Glob', 'Grep', 'WebFetch', 'Skill', 'mcp__chrome-devtools',
-  'Bash(python:*)', 'Bash(node:*)', 'Bash(npm install:*)', 'Bash(mkdir:*)', 'Bash(ls:*)', 'Bash(cp:*)', 'Bash(mv:*)', 'Bash(date:*)'];
+  'Bash(python:*)', 'Bash(python3:*)','Bash(node:*)', 'Bash(npm install:*)', 'Bash(mkdir:*)', 'Bash(ls:*)', 'Bash(cp:*)', 'Bash(mv:*)', 'Bash(date:*)'];
 
 // Map a tool call to the pipeline step it belongs to (mirrors the steps in SKILL.md).
 function stepOf(name, input = {}) {

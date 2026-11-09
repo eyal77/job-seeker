@@ -8,9 +8,29 @@ A Claude Code skill, with a local web UI, that tailors your CV and a cover lette
 
 ## Setup
 
-1. Install Node.js 20 or newer, Python 3, Google Chrome, and Claude Code (`claude` on your PATH, logged in).
-2. Run `npm install --prefix .claude/skills/job-seeker`. This installs the skill's `docx` library for the Word export. The web UI has no dependencies.
-3. Optional: run Claude Code in this folder once, use `/mcp`, and approve `chrome-devtools` (configured in [.mcp.json](.mcp.json)) so jobs are read in a real browser.
+Run the setup script for your system:
+
+```powershell
+.\setup.ps1          # Windows PowerShell (if blocked: powershell -ExecutionPolicy Bypass -File .\setup.ps1)
+```
+
+```bash
+./setup.sh           # macOS, Linux, or Git Bash on Windows
+```
+
+The setup script:
+
+1. **Checks the prerequisites.** It prints how to install anything that's missing (on Windows, as a `winget` command), and stops if a required one is missing:
+   - Node.js 20 or newer (required)
+   - Python 3 (required; it reads Word CVs using only the standard library)
+   - Claude Code, with `claude` on your PATH and logged in (required)
+   - Google Chrome (optional)
+2. **Installs the skill's dependency.** This is the `docx` library for the Word export (`npm install --prefix .claude/skills/job-seeker`). The web UI itself has no dependencies.
+3. **Runs the self-check** (`npm test`).
+
+Then, optionally, run `claude` in this folder once, type `/mcp`, and approve `chrome-devtools` (configured in [.mcp.json](.mcp.json)) so jobs are read in a real browser.
+
+The scripts don't install Node, Python, Chrome, or Claude Code for you. They only tell you what's missing.
 
 ### Why the Chrome MCP (optional)
 
@@ -27,9 +47,17 @@ Exact wording matters, because the CV is matched to the job's keywords and the v
 
 ## Use the web UI
 
-```bash
-npm start
+Start the server:
+
+```powershell
+.\start.ps1          # Windows
 ```
+
+```bash
+./start.sh           # macOS, Linux, Git Bash
+```
+
+`npm start` also works. To use another port, set `PORT` first (`$env:PORT = 4000` in PowerShell, or `PORT=4000 ./start.sh`). Stop the server with Ctrl+C.
 
 Then open <http://localhost:3000> and follow these steps:
 
@@ -133,6 +161,8 @@ web/                         THE WEB UI: calls the skill through the claude CLI
 ├── server.js                Node HTTP server, no dependencies
 ├── index.html               the page (loads marked and DOMPurify from a CDN)
 └── server.test.js           self-check of step tracking (npm test)
+setup.ps1, setup.sh          check prerequisites, install dependencies, run the self-check
+start.ps1, start.sh          start the web UI
 .mcp.json                    Chrome DevTools MCP server for this project
 job seeker skill/            design docs: prd.md, mcp_devtools_tutorial.md
 cv/ jobs/ input/ output/     your data (git-ignored)
