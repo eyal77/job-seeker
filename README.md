@@ -95,6 +95,14 @@ The last run is kept in `output/.last_run.json` and shown again after a refresh 
 - The server listens only on localhost.
 - Set `JOB_SEEKER_BUDGET_USD` to change the default budget.
 
+**How it accesses your Claude account:**
+
+- The app never sees, stores, or passes a token. The server only starts the `claude` command, and `claude` signs itself in, just as it does in your terminal.
+- It uses the login you created with `claude` (`/login`), saved under your user profile (`~/.claude/.credentials.json` on Windows and Linux; on macOS, the Keychain). No environment variable is needed.
+- If `ANTHROPIC_API_KEY` is set, `claude` uses that key instead, and runs are billed to that API account.
+- With a subscription login, runs count against your plan's usage limits. The cost shown in the UI is Claude Code's estimate at API prices.
+- To disconnect, run `claude auth logout` (or `/logout` inside `claude`). The UI then stops working until you log in again.
+
 ## Use the skill directly in Claude Code
 
 ```text
