@@ -4,3 +4,5 @@ jobs/
 output/
 input/
 node_modules/
+dist/
+.job-seeker-runtime/

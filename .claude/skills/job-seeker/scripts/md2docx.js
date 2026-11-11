@@ -1,10 +1,11 @@
 // Convert the CV / cover-letter markdown subset (#, ##, ###, "- " bullets, **bold**) to .docx.
 // Usage: node tools/md2docx.js <in.md> <out.docx>
 const fs = require('fs');
-const { Document, Packer, Paragraph, TextRun, HeadingLevel, LevelFormat, AlignmentType, BorderStyle } = require('docx');
-
-const [, , src, out] = process.argv;
+// Optional dependency root supports execution from a temporary script location.
+const [, , src, out, dependencyRoot] = process.argv;
 if (!src || !out) { console.error('usage: node tools/md2docx.js <in.md> <out.docx>'); process.exit(1); }
+const docxModule = require.resolve('docx', { paths: [dependencyRoot || __dirname] });
+const { Document, Packer, Paragraph, TextRun, HeadingLevel, LevelFormat, AlignmentType, BorderStyle } = require(docxModule);
 
 const FONT = 'Calibri';
 // "**bold** text" -> TextRuns
