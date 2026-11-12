@@ -58,5 +58,5 @@ Setup complete.
 Next:
   1. Optional: run 'claude' in this folder, type /mcp, and approve 'chrome-devtools'
      so job pages are read in a real browser.
-  2. Start the web UI:  ./start.sh   (then open http://localhost:3000)
+  2. Start the web UI:  ./start.sh   (then open http://localhost:3030)
 EOF

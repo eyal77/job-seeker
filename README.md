@@ -60,7 +60,7 @@ Start the server:
 
 `npm start` also works. To use another port, set `PORT` first (`$env:PORT = 4000` in PowerShell, or `PORT=4000 ./start.sh`). Stop the server with Ctrl+C.
 
-Then open <http://localhost:3000> and follow these steps:
+Then open <http://localhost:3030> and follow these steps:
 
 1. **Choose your CV.** Drag in a `.docx`, `.md`, or `.txt` file (*Upload*), or enter its location (*File path*), for example `C:\Users\you\Downloads\cv.docx`. Leave both empty to reuse your saved CV.
 2. **Enter the job.**

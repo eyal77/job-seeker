@@ -1,12 +1,12 @@
 // Local web UI for the job-seeker skill. Runs `claude -p "/job-seeker ..."` headless and streams progress.
-// Start: npm start  ->  http://localhost:3000
+// Start: npm start  ->  http://localhost:3030
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 const CV_EXTS = ['.docx', '.md', '.txt'];
 const LAST_RUN = 'output/.last_run.json';
 const DEFAULT_BUDGET = Number(process.env.JOB_SEEKER_BUDGET_USD) || 3; // USD per run
